@@ -1,0 +1,63 @@
+<html>
+<head>
+    <title>Business Website</title>
+    <link rel="stylesheet" href="/static/preview_static/business_skeleton.css">
+</head>
+<body>
+    <header>Business Header</header>
+    <nav>Navigation Bar</nav>
+    <main>Main Content</main>
+    <footer>Footer</footer>
+</body>
+<script src="/static/preview_static/business_skeleton.js"></script>
+</html>
+
+
+<!--This is a html about us  page template for any ecommerce website-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{Business Title}}</title>
+    <!--title gives an overview of what the website is about, can be used in search engines  -->
+    <!-- may add the css later -->
+    <style>
+        body {
+            background-color: {{ body_background_color }};
+            font-family: {{ body_font_family }};
+        }
+        h1 {
+            color: {{ h1_color }};
+        }
+        /* Will add more styles... */
+    </style>
+</head>
+<body>
+<header>
+    <h1>{{ Business_name }}</h1>
+    <!--helps to identify the website being visited-->
+
+    <nav>
+        <!--navigation bar containing links to different pages-->
+        <ul>
+            <li><a href="{{ homePage_link }}">Home</a></li>
+            <li><a href="{{ aboutUs_link }}">About Us</a></li>
+            <li><a href="{{ ourProducts_link }}">Products</a></li>
+            <li><a href="{{ contactUs_link }}">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <!-- About Us Page -->
+    <!--Include content such as business description, history, mission and team or employees-->
+    <section id="about">
+        <h2>About Us</h2>
+        <p>{{ about_us_content }}</p>
+    </section>
+</main>
+<footer>
+    <p>{{ footer_content }}</p>
+</footer>
+
+</body>
+</html>

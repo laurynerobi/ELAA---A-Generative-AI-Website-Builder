@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="static/main_styles.css">
+   <script type="text/javascript">
+        var initialPageName = 'Home';  // 'Home' is the initial page
+        var templateId = {{ template_id | tojson }};  // Ensure this is correctly obtained
+        var templateContentUrl = `/template_content/${templateId}/${initialPageName}`;
+    </script>
+</head>
+<body>
+    <nav>
+        <ul class="left">
+            <li><a href="#home">ELAA: Website Designer</a></li>
+        </ul>
+        <ul class="right">
+        <li><a onclick="window.location.href='newTest/templates/about.html'">About</a></li>
+            <li><a href ="/designs">Designs</a></li>
+        <li><a href="#tools">Templates</a></li>
+    </ul>
+    </nav>
+
+    <div class="container">
+        <div class="chat-container">
+            <div class="chat-history" id="chatHistory">
+                <!-- Chat messages will be appended here -->
+            </div>
+            <div class="chat-input-container">
+                <input type="text" id="chatInput" placeholder="Type here...">
+                <button id="sendBtn">Send</button>
+            </div>
+        </div>
+        <div class="preview-container">
+            <div class="preview-header">
+                <!-- Navigation buttons or tabs could go here -->
+                <button onclick="toggleView()">Toggle View</button>
+                <textarea id="sourceCode" style="display: none;"></textarea>
+            </div>
+            <iframe id="previewFrame" src="about:blank"></iframe>
+            <button id="reloadBtn" onclick="reloadPreview()">↻</button>
+            <button id="launchBtn">LAUNCH</button>
+        </div>
+    </div>
+
+    <script src="static/script.js"></script>
+    <script>
+        function toggleView() {
+            var sourceCodeElement = document.getElementById('sourceCode');
+            var previewFrameElement = document.getElementById('previewFrame');
+            var currentUrl = previewFrameElement.contentWindow.location.href;
+            if (sourceCodeElement.style.display === "block") {
+                sourceCodeElement.style.display = "none";
+                previewFrameElement.style.display = "block";
+            } else {
+                fetch(currentUrl)
+                    .then(response => response.text())
+                    .then(data => {
+                        sourceCodeElement.value = data;
+                        sourceCodeElement.style.display = "block";
+                        previewFrameElement.style.display = "none";
+                    });
+            }
+        }
+    </script>
+</body>
+</html>

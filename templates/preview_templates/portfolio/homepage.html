@@ -1,0 +1,49 @@
+<!--This is a html home page template for any blog-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog</title>
+        <!-- Dynamically link to the CSS file -->
+<!--    <link rel="stylesheet" type="text/css" href="{{ stylesheet_link }}">-->
+        <link rel="stylesheet" href="/template_content/css/2/Home">
+
+</head>
+<body>
+    <header>
+        <!-- Have the blog name and logo -->
+        <img src="{{ BlogLogo_image }}" alt="{{ blog_name }} logo">
+        <h1>{{ blog_name }}</h1>
+        <nav>
+            <ul>
+                <!--navigation bar containing links to different pages-->
+                <li><a href="#" onclick="navigateTo('Home')">Home</a></li>
+                <li><a href="#" onclick="navigateTo('About')">About</a></li>
+                <li><a href="#" onclick="navigateTo('Contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <!-- Blog Post, here we will have the details of the blog, title, date, author, image , content -->
+        <article>
+            <h2>{{ post_1_title }}</h2>
+            <p>{{ post_1_date }}</p>
+            <p>{{ post_1_author }}</p>
+            <img src="{{ post_image_url }}" alt="{{ post_image_description }}">
+            <p>{{ post_1_content }}</p>
+        </article>
+
+         <article>
+            <h2>{{ post_2_title }}</h2>
+            <p>{{ post_2_date }}</p>
+            <p>{{ post_2_author }}</p>
+            <img src="{{ post_image_url }}" alt="{{ post_image_description }}">
+            <p>{{ post_2_content }}</p>
+        </article>
+    </main>
+    <footer>
+        <p>{{ footer_content }}</p>
+    </footer>
+<!-- Dynamically link to the JS file -->
+<script src="/template_content/js/2/Home"></script>
+</body>
+</html>
